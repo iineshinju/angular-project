@@ -1,0 +1,153 @@
+$color-comment: #1da1f2;
+$color-verified: rgb(29, 155, 240);
+$color-retweet: #17bf63;
+$color-like: #e0245e;
+$grey: #71767b;
+
+.tweet-container {
+    display: flex;
+    border: solid rgb(47, 51, 54);
+    border-width: 0 1px 1px 1px;
+    border-top: none;
+    padding: 10px;
+    width: 600px;
+    .illustration {
+        margin-right: 20px;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+        }
+    }
+    .content {
+        width: 100%;
+        .user {
+            display: flex;
+            column-gap: 5px;
+            margin-bottom: 10px;
+            .name {
+                font-weight: bold;
+            }
+            .verified {
+                width: 18px;
+                height: 18px;
+                fill: $color-verified;
+                margin: -2px 5px 0 0;
+            }
+        }
+        .action-list {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding-right: 80px;
+            box-sizing: border-box;
+            margin: 20px 0 10px 0;
+            .action {
+                display: flex;
+                .icon {
+                    width: 18px;
+                    height: 18px;
+                    fill: $grey;
+                }
+                .value {
+                    margin-left: 15px;
+                    margin-top: 3px;
+                    color: $grey;
+                }
+                &:hover {
+                    cursor: pointer;
+                    &.comment {
+                        .icon {
+                            fill: $color-comment;
+                        }
+                        .value {
+                            color: $color-comment;
+                        }
+                    }
+                    &.retweet {
+                        .icon {
+                            fill: $color-retweet;
+                        }
+                        .value {
+                            color: $color-retweet;
+                        }
+                    }
+                    &.like {
+                        .icon {
+                            fill: $color-like;
+                        }
+                        .value {
+                            color: $color-like;
+                        }
+                    }
+                    &.stats {
+                        .icon {
+                            fill: $color-comment;
+                        }
+                        .value {
+                            color: $color-comment;
+                        }
+                    }
+                    &.delete {
+                        .icon {
+                            color: red;
+                        }
+                    }
+                }
+            }
+            .comment-color {
+                .icon {
+                    fill: $color-comment;
+                }
+                .value {
+                    color: $color-comment;
+                }
+            }
+            .retweet-color {
+                .icon {
+                    fill: $color-retweet;
+                }
+                .value {
+                    color: $color-retweet;
+                }
+            }
+            .liked-color {
+                .icon {
+                    fill: $color-like;
+                }
+                .value {
+                    color: $color-like;
+                }
+            }
+        }
+    }
+}
+.form-row {
+    width: 100%;
+    display: flex;
+    .form-field {
+        color: black;
+        flex: 1;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+    }
+    textarea {
+        resize:none;
+    }
+}
+.button-line {
+    width: 20%;
+    text-align: right;
+    margin-top: 6px;
+    button {
+        background-color: #1da1f2;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        &[disabled] {
+            background-color: lightgrey;
+        }
+    }
+}

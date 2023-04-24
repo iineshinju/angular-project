@@ -1,0 +1,8 @@
+<h1>
+  Le tweet de @{{ singleTweet.username }} :
+</h1>
+<app-tweet *ngIf="singleTweet" [tweetData]="singleTweet"></app-tweet>
+<div>
+  <button *ngIf="+singleTweet.id > 1" (click)="previousTweet(singleTweet.id)">Tweet précédent</button>
+  <button *ngIf="+singleTweet.id < 48" (click)="nextTweet(singleTweet.id)">Tweet suivant</button>
+</div>

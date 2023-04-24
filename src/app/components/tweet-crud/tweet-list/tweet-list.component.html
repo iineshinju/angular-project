@@ -1,0 +1,5 @@
+<div class="title">
+  <h2>Tendances pour vous</h2>
+</div>
+<!-- TODO J2 Exercice 6 : Afficher pour chaque élément dans myTweetData un composant tweet en lui passant l'élément en input -->
+<app-tweet *ngFor="let data of tweetDatas" [tweetData]="data"></app-tweet>

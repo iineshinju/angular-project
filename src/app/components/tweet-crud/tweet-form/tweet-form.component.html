@@ -1,0 +1,102 @@
+<div class="form-container">
+  <h2>Exprimez-vous</h2>
+  <!-- Exemple de Template Driven form -->
+  <!-- TODO : Exercice 7 : transformer en reactive form -->
+  <!--<form #form="ngForm"
+    (ngSubmit)="onClickSubmit()">
+    <div class="form-row">
+      <input class="form-field user"
+        [(ngModel)]="newTweetData.name"
+        placeholder="Nom d'utilisateur"
+        type="text"
+        required
+        name="user"
+        #nameInput="ngModel">
+      <input class="form-field pseudo"
+        [(ngModel)]="newTweetData.username"
+        placeholder="Pseudonyme"
+        type="text"
+        required
+        minlength="5"
+        name="pseudo"
+        #pseudoInput="ngModel">
+    </div>
+    <div class="form-row">
+      <textarea class="form-field content"
+        placeholder="Qu'avez-vous à dire ?"
+        [(ngModel)]="newTweetData.content"
+        type="text"
+        name="content"
+        required
+        #contentInput="ngModel"></textarea>
+    </div>
+    <div class="button-line">
+      <button [disabled]="!form.valid"
+        type="submit">Envoyer</button>
+    </div>
+  </form>
+-->
+  <form [formGroup]="myForm" (ngSubmit)="onClickSubmit()">
+    <div class="form-row">
+      <input
+        class="form-field user"
+        placeholder="Nom d'utilisateur"
+        type="text"
+        name="user"
+        formControlName="name"
+      />
+      <input
+        class="form-field pseudo"
+        placeholder="Pseudonyme"
+        type="text"
+        minlength="5"
+        name="pseudo"
+        formControlName="pseudo"
+      />
+    </div>
+    <div class="form-row">
+      <textarea
+        class="form-field content"
+        placeholder="Qu'avez-vous à dire ?"
+        type="text"
+        name="content"
+        formControlName="tweet"
+      ></textarea>
+    </div>
+    <div class="button-line">
+      <button [disabled]="!myForm.valid" type="submit">Envoyer</button>
+    </div>
+  </form>
+  <!-- Erreurs -->
+  <!--<div class="error"
+    *ngIf="myForm.name.dirty && nameInput.errors?.['required']">
+    Le champ Nom d'utilisateur est obligatoire.
+  </div>
+  <div class="error"
+    *ngIf="pseudoInput.dirty && pseudoInput.errors?.['required'] || pseudoInput.errors?.['minLength']">
+    Le champ Pseudonyme est obligatoire et doit être composé d'au moins 5 caractères.
+  </div>
+  <div class="error"
+    *ngIf="contentInput.dirty && contentInput.errors?.['required']">
+    Le champ Qu'avez-vous à dire ? est obligatoire.
+  </div>-->
+  <div
+    class="error"
+    *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].errors?.['required'] && (myForm.controls['name'].dirty || myForm.controls['name'].touched)"
+  >
+    Le champ Nom d'utilisateur est obligatoire.
+  </div>
+  <div
+    class="error"
+    *ngIf="myForm.controls['pseudo'].invalid && myForm.controls['pseudo'].errors?.['required'] && (myForm.controls['pseudo'].dirty || myForm.controls['pseudo'].touched)"
+  >
+    Le champ Pseudonyme est obligatoire et doit être composé d'au moins 5
+    caractères.
+  </div>
+  <div
+    class="error"
+    *ngIf="myForm.controls['tweet'].invalid && myForm.controls['tweet'].errors?.['required'] && (myForm.controls['tweet'].dirty || myForm.controls['tweet'].touched)"
+  >
+    Le champ Qu'avez-vous à dire ? est obligatoire.
+  </div>
+</div>
